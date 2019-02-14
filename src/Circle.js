@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import enhancer from './enhancer';
 import { propTypes, defaultProps } from './types';
+import styles from './Circle.less';
 
 class Circle extends Component {
-  getPathStyles(offset, percent, strokeColor, strokeWidth, gapDegree = 0, gapPosition) {
-    const radius = 50 - (strokeWidth / 2);
+  getPathStyles(offset, percent, strokeColor, pathWidth, gapDegree = 0, gapPosition) {
+    const radius = 50 - (pathWidth / 2);
     let beginPositionX = 0;
     let beginPositionY = -radius;
     let endPositionX = 0;
@@ -50,7 +51,7 @@ class Circle extends Component {
 
   getStokeList() {
     const {
-      prefixCls, percent, strokeColor, strokeWidth, strokeLinecap,
+      prefixCls, percent, strokeColor, strokeWidth, trailWidth, strokeLinecap,
       gapDegree, gapPosition,
     } = this.props;
     const percentList = Array.isArray(percent) ? percent : [percent];
@@ -60,7 +61,7 @@ class Circle extends Component {
     return percentList.map((ptg, index) => {
       const color = strokeColorList[index] || strokeColorList[strokeColorList.length - 1];
       const { pathString, pathStyle } = this.getPathStyles(
-        stackPtg, ptg, color, strokeWidth, gapDegree, gapPosition
+        stackPtg, ptg, color, strokeWidth >= trailWidth ? strokeWidth : trailWidth, gapDegree, gapPosition
       );
 
       stackPtg += ptg;
@@ -87,32 +88,53 @@ class Circle extends Component {
   render() {
     const {
       prefixCls, strokeWidth, trailWidth,
-      gapDegree, gapPosition,
-      trailColor, strokeLinecap, style, className, ...restProps,
+      gapDegree, gapPosition, text, textStyle,
+      trailColor, strokeLinecap, style, className, ...restProps
     } = this.props;
     const { pathString, pathStyle } = this.getPathStyles(
-      0, 100, trailColor, strokeWidth, gapDegree, gapPosition
+      0, 100, trailColor, strokeWidth >= trailWidth ? strokeWidth : trailWidth, gapDegree, gapPosition
     );
     delete restProps.percent;
     delete restProps.strokeColor;
     return (
-      <svg
-        className={`${prefixCls}-circle ${className}`}
-        viewBox="0 0 100 100"
-        style={style}
-        {...restProps}
-      >
-        <path
-          className={`${prefixCls}-circle-trail`}
-          d={pathString}
-          stroke={trailColor}
-          strokeLinecap={strokeLinecap}
-          strokeWidth={trailWidth || strokeWidth}
-          fillOpacity="0"
-          style={pathStyle}
-        />
-        {this.getStokeList()}
-      </svg>
+      <div class={styles.circle}>
+        <svg
+          className={`${prefixCls}-circle ${className}`}
+          viewBox="0 0 100 100"
+          style={style}
+          {...restProps}
+        >
+          <defs>
+            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="gradient1">
+              <stop offset="0%" stop-color="#e52c5c"></stop>
+              <stop offset="100%" stop-color="#ab5aea"></stop>
+            </linearGradient>
+            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="gradient2">
+              <stop offset="0%" stop-color="#4352f3"></stop>
+              <stop offset="100%" stop-color="#ab5aea"></stop>
+            </linearGradient>
+            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="gradient3">
+              <stop offset="0%" stop-color="#2D9AFF"></stop>
+              <stop offset="100%" stop-color="#2817E2"></stop>
+            </linearGradient>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2D9AFF"></stop>
+              <stop offset="100%" stop-color="#2817E2"></stop>
+            </linearGradient>
+          </defs>
+          <path
+            className={`${prefixCls}-circle-trail`}
+            d={pathString}
+            stroke={trailColor}
+            strokeLinecap={strokeLinecap}
+            strokeWidth={trailWidth || strokeWidth}
+            fillOpacity="0"
+            style={pathStyle}
+          />
+          {this.getStokeList()}
+        </svg>
+        <span class={styles.text} style={textStyle}>{text}</span>
+      </div>
     );
   }
 }
