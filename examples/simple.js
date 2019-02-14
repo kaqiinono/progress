@@ -54,9 +54,9 @@ class Example extends Component {
         </div>
         <div style={circleContainerStyle}>
           <Circle
-            percent="80"
-            text="150080"
-            textStyle={{ fontSize: '200px', color: 'red' }}
+            percent={percent}
+            text={`${percent}%`}
+            textStyle={{ fontSize: '100px', color: 'red' }}
             strokeWidth="10"
             trailWidth="12"
             strokeColor="url('#grad1')"
