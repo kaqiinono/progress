@@ -10,11 +10,11 @@
     "rc-progress",
     "rc-progress-extend"
   ],
-  "homepage": "http://github.com/react-component/progress",
-  "author": "tsjxyz@gmail.com",
+  "homepage": "https://github.com/kaqiinono/progress",
+  "author": "kaqiinono@gmail.com",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/react-component/progress.git"
+    "url": "git+ssh://git@github.com/kaqiinono/progress.git"
   },
   "bugs": {
     "url": "http://github.com/react-component/progress/issues"
@@ -50,6 +50,9 @@
     "saucelabs": "rc-test run saucelabs",
     "test": "rc-test run test",
     "chrome-test": "rc-test run chrome-test",
+    "patch": "npm version patch -m 'Update Version patch by NPM' | xargs git push origin && git push",
+    "minor": "npm version minor -m 'Update Version minor by NPM' | xargs git push origin && git push",
+    "major": "npm version major -m 'Update Version major by NPM' | xargs git push origin && git push",
     "coverage": "rc-test run coverage"
   },
   "devDependencies": {
