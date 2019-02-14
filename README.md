@@ -1,4 +1,4 @@
-# rc-progress
+# rc-progress-extend
 
 Progress Bar.
 
