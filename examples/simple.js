@@ -52,6 +52,20 @@ class Example extends Component {
             strokeColor={color}
           />
         </div>
+        <div style={circleContainerStyle}>
+          <Circle
+            percent={percent}
+            text={`${percent}%`}
+            textStyle={{ fontSize: '100px', color: 'red' }}
+            strokeWidth="10"
+            trailWidth="12"
+            strokeColor="url('#grad1')"
+            strokeLinecap="round"
+            trailColor="rgba(228,246,255,.3)"
+            gapDegree="0"
+            gapPosition="top"
+          />
+        </div>
         <p>
           <button onClick={this.changeState}>Change State</button>
         </p>
