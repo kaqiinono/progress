@@ -24,7 +24,7 @@ Progress Bar.
 
 ## Example
 
-http://react-component.github.io/progress/
+https://kaqiinono.github.io/rc-progress-extend
 
 ## Screenshots
 
@@ -46,6 +46,18 @@ import { Line, Circle } from 'rc-progress';
 ReactDOM.render(<div>
   <Line percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
   <Circle percent="10" strokeWidth="4" strokeColor="#D3D3D3" />
+  <Circle
+            percent={percent}
+            text={`${percent}%`}
+            textStyle={{ fontSize: '100px', color: 'red' }}
+            strokeWidth="10"
+            trailWidth="12"
+            strokeColor="url('#grad1')"
+            strokeLinecap="round"
+            trailColor="rgba(228,246,255,.3)"
+            gapDegree="0"
+            gapPosition="top"
+          />
 </div>, container);
 ```
 
@@ -135,7 +147,7 @@ ReactDOM.render(<div>
 ## Installation
 
 ```
-npm install --save rc-progress
+npm install --save rc-progress-extend
 ```
 
 ## Development
@@ -147,4 +159,4 @@ npm start
 
 ## License
 
-rc-progress is released under the MIT license.
+rc-progress-extend is released under the MIT license.
