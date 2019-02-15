@@ -1,6 +1,6 @@
 {
   "name": "rc-progress-extend",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "description": "progress ui component for react",
   "keywords": [
     "react",
@@ -31,7 +31,7 @@
   "config": {
     "port": 8000,
     "entry": {
-      "rc-progress": [
+      "progress": [
         "./src/index.js",
         "./assets/index.less"
       ]
