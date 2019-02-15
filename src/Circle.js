@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import enhancer from './enhancer';
 import { propTypes, defaultProps } from './types';
-import styles from './Circle.less';
+import './Circle.less';
 
 class Circle extends Component {
   getPathStyles(offset, percent, strokeColor, pathWidth, gapDegree = 0, gapPosition) {
@@ -97,7 +97,7 @@ class Circle extends Component {
     delete restProps.percent;
     delete restProps.strokeColor;
     return (
-      <div className={styles['circle-main']}>
+      <div className={`${prefixCls}-circle-main}`}>
         <svg
           className={`${prefixCls}-circle ${className}`}
           viewBox="0 0 100 100"
@@ -133,7 +133,7 @@ class Circle extends Component {
           />
           {this.getStokeList()}
         </svg>
-        <span className={styles['circle-main']} style={textStyle}>{text}</span>
+        <span className={`${prefixCls}-circle-text}`} style={textStyle}>{text}</span>
       </div>
     );
   }
