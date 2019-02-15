@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import enhancer from './enhancer';
 import { propTypes, defaultProps } from './types';
+import '../assets/index.less';
 
 class Circle extends Component {
   getPathStyles(offset, percent, strokeColor, pathWidth, gapDegree = 0, gapPosition) {
