@@ -4,12 +4,14 @@ export const defaultProps = {
   className: '',
   percent: 0,
   prefixCls: 'rc-progress',
-  strokeColor: '#2db7f5',
   strokeLinecap: 'round',
   strokeWidth: 1,
   style: {},
   trailColor: '#D9D9D9',
   trailWidth: 1,
+  gradientColor: ['#2D9AFF', '#2817E2'],
+  rectWidth: 150,
+  rectHeight: 150,
 };
 
 const mixedType = PropTypes.oneOfType([PropTypes.number, PropTypes.string]);
@@ -24,4 +26,7 @@ export const propTypes = {
   style: PropTypes.object,
   trailColor: PropTypes.string,
   trailWidth: mixedType,
+  gradientColor: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  rectWidth: PropTypes.string,
+  rectHeight: PropTypes.string,
 };

@@ -50,9 +50,10 @@ class Circle extends Component {
 
   getStokeList() {
     const {
-      prefixCls, percent, strokeColor, strokeWidth, trailWidth, strokeLinecap,
+      prefixCls, percent, strokeWidth, trailWidth, strokeLinecap,
       gapDegree, gapPosition,
     } = this.props;
+    const strokeColor = this.props.strokeColor || 'url("#gradient")';
     const percentList = Array.isArray(percent) ? percent : [percent];
     const strokeColorList = Array.isArray(strokeColor) ? strokeColor : [strokeColor];
 
@@ -87,7 +88,7 @@ class Circle extends Component {
   render() {
     const {
       prefixCls, strokeWidth, trailWidth,
-      gapDegree, gapPosition, text, textStyle,
+      gapDegree, gapPosition, text, textStyle, gradientColor,
       trailColor, strokeLinecap, style, className, ...restProps
     } = this.props;
     const { pathString, pathStyle } = this.getPathStyles(
@@ -104,21 +105,9 @@ class Circle extends Component {
           {...restProps}
         >
           <defs>
-            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="gradient1">
-              <stop offset="0%" stop-color="#e52c5c"></stop>
-              <stop offset="100%" stop-color="#ab5aea"></stop>
-            </linearGradient>
-            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="gradient2">
-              <stop offset="0%" stop-color="#4352f3"></stop>
-              <stop offset="100%" stop-color="#ab5aea"></stop>
-            </linearGradient>
-            <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="gradient3">
-              <stop offset="0%" stop-color="#2D9AFF"></stop>
-              <stop offset="100%" stop-color="#2817E2"></stop>
-            </linearGradient>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#2D9AFF"></stop>
-              <stop offset="100%" stop-color="#2817E2"></stop>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: gradientColor[0], stopOpacity: 1 }}></stop>
+              <stop offset="100%" style={{ stopColor: gradientColor[1], stopOpacity: 1 }}></stop>
             </linearGradient>
           </defs>
           <path
