@@ -97,7 +97,7 @@ class Circle extends Component {
     delete restProps.percent;
     delete restProps.strokeColor;
     return (
-      <div className={styles[`${prefixCls}-circle-main}`]}>
+      <div className={`${prefixCls}-circle-main}`}>
         <svg
           className={`${prefixCls}-circle ${className}`}
           viewBox="0 0 100 100"
@@ -133,7 +133,7 @@ class Circle extends Component {
           />
           {this.getStokeList()}
         </svg>
-        <span className={`${styles[`${prefixCls}-circle-text}`]} ant-progress-circle-text`}
+        <span className={`${prefixCls}-circle-text}`}
               style={textStyle}>{text}</span>
       </div>
     );
