@@ -27,6 +27,6 @@ export const propTypes = {
   trailColor: PropTypes.string,
   trailWidth: mixedType,
   gradientColor: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-  rectWidth: PropTypes.string,
-  rectHeight: PropTypes.string,
+  rectWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  rectHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
