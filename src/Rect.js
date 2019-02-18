@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import enhancer from './enhancer';
-import { propTypes, defaultProps } from './types';
+import { propTypes, rectDefaultProps } from './types';
 
 class Rect extends Component {
 
@@ -14,7 +14,6 @@ class Rect extends Component {
       gradientColor,
       rectWidth,
       rectHeight,
-      ...restProps,
     } = this.props;
 
     const strokeColor = this.props.strokeColor || 'url("#gradient")';
@@ -42,6 +41,6 @@ class Rect extends Component {
 
 Rect.propTypes = propTypes;
 
-Rect.defaultProps = defaultProps;
+Rect.defaultProps = rectDefaultProps;
 
 export default enhancer(Rect);

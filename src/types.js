@@ -10,6 +10,10 @@ export const defaultProps = {
   trailColor: '#D9D9D9',
   trailWidth: 1,
   gradientColor: ['#2D9AFF', '#2817E2'],
+};
+
+export const rectDefaultProps = {
+  ...defaultProps,
   rectWidth: 150,
   rectHeight: 150,
 };
