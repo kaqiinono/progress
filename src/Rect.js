@@ -24,7 +24,6 @@ class Rect extends Component {
       <svg
         className={`${prefixCls}-rect ${className}`}
         style={style}
-        {...restProps}
       >
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
